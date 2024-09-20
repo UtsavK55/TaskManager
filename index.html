@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+</head>
+<body>
+   
+    <div class="container">
+        <h1>Task Manager</h1>
+        <form id="addTaskForm">
+            <div class="form-input">
+                <div class="form-subinput">
+                    <label for="taskInput">Task <sup>*</sup></label>
+                    <input type="text" id="taskInput" placeholder="Add a new task..." required />
+                </div>
+                <div class="form-subinput">
+                    <label for="taskDate">Deadline <sup>*</sup></label>
+                    <input type="date" id="taskDate" placeholder="Deadline for the task" required />
+                </div>
+                <div class="form-subinput">
+                    <label for="selectPriority">Priority <sup>*</sup></label>
+                    <select id="selectPriority" required>
+                        <option value="">--Select Priority--</option>
+                        <option value="High">High</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+                
+            </div>
+            <label for="taskTag">Tags/Description</label>
+            <textarea id="taskTag" placeholder="Add a tag or a description..." maxlength="15"></textarea>
+            <button id="addTask" type="submit">Add Task</button>
+        </form>
+        <h3>List of Tasks</h3>
+        <div class="form-input" >
+            <div>
+                <label for="selectFilter">Filter Task:</label>
+        <select id="selectFilter">
+            <option value="all">--Select Status--</option>
+            <option value="completed">Completed Tasks</option>
+            <option value="pending">Pending Tasks</option>
+        </select>
+        <select id="selectPriorityFilter">
+            <option value="all">--Select Priority--</option>
+            <option value="High">High</option>
+            <option value="Normal">Normal</option>
+            <option value="Low">Low</option>
+        </select>
+            </div>
+             <div>
+                <input type="text" id="taskSearch" placeholder="Enter a task to search..." autocomplete="off" />
+                <button id="searchTask"><i class="fa fa-search" aria-hidden="true"></i></button>
+             </div>
+        </div>
+        <table id="taskTable">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Status</th>
+                    <th>Deadline</th>
+                    <th>Priority</th>
+                    <th>Tags/Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="6"><div id="loader"><i class="fa fa-spinner" aria-hidden="true"></i></div></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="index.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+</html>
